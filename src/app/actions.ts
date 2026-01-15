@@ -6,10 +6,10 @@ import { ReviewData, AnalysisResult } from '@/types';
 // Force Edge Runtime for Cloudflare Pages compatibility
 export const runtime = 'edge';
 
-// Initialize Gemini API
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENERATIVE_AI_API_KEY || '');
-
 export async function analyzeReviewsAction(reviews: ReviewData[]): Promise<AnalysisResult> {
+  // Initialize inside the action to avoid static initialization issues in edge
+  const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENERATIVE_AI_API_KEY || '');
+
   if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
     throw new Error('Google Gemini API Key is not configured.');
   }
