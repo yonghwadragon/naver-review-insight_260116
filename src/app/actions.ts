@@ -3,6 +3,9 @@
 import { GoogleGenerativeAI, SchemaType } from '@google/generative-ai';
 import { ReviewData, AnalysisResult } from '@/types';
 
+// Force Edge Runtime for Cloudflare Pages compatibility
+export const runtime = 'edge';
+
 // Initialize Gemini API
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GENERATIVE_AI_API_KEY || '');
 
