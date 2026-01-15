@@ -39,9 +39,9 @@ export function SentimentChart({ summary }: SentimentChartProps) {
                 ))}
               </Pie>
               <Tooltip 
-                formatter={(value: number | string | Array<number | string>) => {
-                  if (typeof value === 'number') return `${value}%`;
-                  return value;
+                formatter={(value: any) => {
+                  if (typeof value === 'number') return [`${value}%`];
+                  return [value];
                 }}
                 contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
               />
