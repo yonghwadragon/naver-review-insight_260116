@@ -1,5 +1,8 @@
 'use client';
 
+// Force Edge Runtime for Cloudflare Pages compatibility
+export const runtime = 'edge';
+
 import { useState } from 'react';
 import { ReviewUploader } from '@/components/ReviewUploader';
 import { ReviewPreview } from '@/components/ReviewPreview';

@@ -3,8 +3,7 @@
 import { GoogleGenerativeAI, SchemaType } from '@google/generative-ai';
 import { ReviewData, AnalysisResult } from '@/types';
 
-// Force Edge Runtime for Cloudflare Pages compatibility
-export const runtime = 'edge';
+// runtime config moved to page.tsx to avoid build error in server action file
 
 export async function analyzeReviewsAction(reviews: ReviewData[]): Promise<AnalysisResult> {
   // Initialize inside the action to avoid static initialization issues in edge
